@@ -40,7 +40,7 @@ export const App = () => {
           {goods.map(good => {
             return (
               <tr
-                key={goods.indexOf(good)}
+                key={good}
                 data-cy="Good"
                 className={clsx({
                   'has-background-success-light': good === selectedGood,
