@@ -47,21 +47,30 @@ export const App = () => {
                 })}
               >
                 <td>
-                  <button
-                    data-cy={clsx(
-                      { RemoveButton: good === selectedGood },
-                      { AddButton: good !== selectedGood },
-                    )}
-                    type="button"
-                    className={clsx('button', {
-                      'is-info': good === selectedGood,
-                    })}
-                    onClick={() => {
-                      setValue(selectedGood === good ? '' : good);
-                    }}
-                  >
-                    {selectedGood === good ? '-' : '+'}
-                  </button>
+                  {selectedGood === good && (
+                    <button
+                      data-cy="RemoveButton"
+                      type="button"
+                      className="button is-info"
+                      onClick={() => {
+                        setValue('');
+                      }}
+                    >
+                      -
+                    </button>
+                  )}
+                  {selectedGood !== good && (
+                    <button
+                      data-cy="AddButton"
+                      type="button"
+                      className="button"
+                      onClick={() => {
+                        setValue(good);
+                      }}
+                    >
+                      +
+                    </button>
+                  )}
                 </td>
 
                 <td data-cy="GoodTitle" className="is-vcentered">
